@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html class="js" lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, user-scalable=no">
     <title>Fantasy Football</title>
+    <link rel="icon" href="assets/images/favicon.png">
 
     <!-- Bootstrap 3.3.7 JS -->
     <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
@@ -14,11 +15,11 @@
     <!-- Boostrap 3.3.7 CSS -->
     <script src="bootstrap/bootstrap.min.js"></script>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
     <!-- Font-Awesome Icons -->
     <script src="font-awesome/font-awesome.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <!-- App Scripts -->
     <script src="js/sports_ticker.js"></script>
@@ -26,14 +27,12 @@
     <script src="js/player_twitter.js"></script>
     <script src="js/player_list.js"></script>
     <script src="js/player_news.js"></script>
-
+    <script src="js/instructions.js"></script>
+        
     <!-- Style Sheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<!-- Preloader for API -->
-<div id="preloader"></div>
 
 <!-- Start App Container -->
 <div class="container">
@@ -42,6 +41,7 @@
     <div class="row ticker">
         <div class="sportsTicker"></div>
     </div>
+    
     <!-- Headlines -->
     <div class="row headlines">
 
@@ -50,13 +50,14 @@
             <div class="panel-heading"><i class="fa fa-users fa-3x"></i></div>
             <div class="panel-body playerList">
                 <!-- Team List -->
-                <div id='team-dropdown' class="dropdown">
-                    <button id='team-list' class="btn btn-team dropdown-toggle" type="button" data-toggle='dropdown'>Select Teams<span class="caret"></span></button>
+                <div id='teamDropdown' class="dropdown">
+                    <button id='selectTeam' class="btn dropdown-toggle" type="button" data-toggle='dropdown'>Select Team</button>
                 </div>
                 <!-- Player List -->
-                <div id="player-dropdown" class='dropdown'>
-                    <button id='player-list' class="btn btn-player dropdown-toggle" type="button" data-toggle='dropdown'>Select Players<span class="caret"></span></button>
+                <div id="playerDropdown" class='dropdown'>
+                    <button id='selectPlayer' class="btn dropdown-toggle" type="button" data-toggle='dropdown'>Select Player</button>
                 </div>
+                <div id="fantasyPicks">Fantasy Picks</div>
             </div>
         </div>
 
@@ -75,11 +76,22 @@
         </div>
     </div>
 </div>
-<!-- End of App Container -->
+<!-- End App Container -->
 
 <!--Modal -->
-<div id="readMore" class="modal fade" role="dialog">
-    <div class="modal-body modalNews"></div>
+<div id="newsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+        <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
